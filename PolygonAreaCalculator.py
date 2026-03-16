@@ -46,17 +46,19 @@ class Rectangle:
     
 class Square(Rectangle):
     def __init__(self, side_length):
-        super().__init__(side_length, side_length)
+        super().__init__(side_length, side_length) # Override the width and length from rectangle to sides of square
     
-    def set_width(self, width):
+    def set_width(self, width): # Override / Setter
         self.width = width
+        self.height = width
     
-    def set_height(self, height):
+    def set_height(self, height): # Override / Setter
         self.height = height
+        self.width = height
     
-    def set_side(self, side):
+    def set_side(self, side): # Override / Setter
         self.width = side
         self.height = side
     
     def __str__(self):
-        return f"Square(side={self.side_length})"
+        return f"Square(side={self.width})" # <-- Can use either self.width, or self.height doesn't matter since both are same in this scenario
