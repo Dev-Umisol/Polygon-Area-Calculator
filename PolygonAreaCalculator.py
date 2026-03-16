@@ -24,31 +24,39 @@ class Rectangle:
         return diagonal
 
     def get_picture(self):
-        picture = ""
+        picture = "" # <-- Empty String
         
         if self.width > 50 or self.height > 50:
             return "Too big for picture."
         else:
-            for shape in range(self.height):
-                picture += "*" * self.width + "\n"
+            for shape in range(self.height): # <-- Loop through the height
+                picture += "*" * self.width + "\n" # <-- Build the width with *
             return picture
     
     def get_amount_inside(self, shape):
+        # floor division to get whole number to find shape(s) that fit into argument
         shape_width = self.width // shape.width
         shape_height = self.height // shape.height
         shape = shape_width * shape_height
         
         return shape
     
+    def __str__(self):
+        return f"Rectangle(width={self.width}, height={self.height})"
+    
 class Square(Rectangle):
     def __init__(self, side_length):
-        super().__init__(side_length)
+        super().__init__(side_length, side_length)
     
     def set_width(self, width):
-        pass
+        self.width = width
     
     def set_height(self, height):
-        pass
+        self.height = height
     
     def set_side(self, side):
-        pass
+        self.width = side
+        self.height = side
+    
+    def __str__(self):
+        return f"Square(side={self.side_length})"
